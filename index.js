@@ -10,6 +10,11 @@ const options = yargs
     type: "string",
     demandOption: true,
   })
+  .option("b", {
+    alias: "branch",
+    describe: "Main branch name",
+    type: "string",
+  })
   .option("p", {
     alias: "packages",
     describe: "Packages",
@@ -17,12 +22,12 @@ const options = yargs
   }).argv;
 
 const packages = parsePackages(options.packages);
-
+const mainBranch = options.branch ?? "master";
 (async function () {
   const Repo = new Repository(options.repo);
-  const branchName = await Repo.createBranch("master");
+  const branchName = await Repo.createBranch(mainBranch);
   const file = await Repo.getFile(branchName, "package.json");
   const updatedFile = updatePackages(file, packages);
   await Repo.createCommit(updatedFile, branchName);
-  await Repo.createPullRequest("master", branchName);
+  await Repo.createPullRequest(mainBranch, branchName);
 })();
