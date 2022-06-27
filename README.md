@@ -1,10 +1,16 @@
-Install Dependicies
+This is script for update dependecies in you bitbucker repository.
+
+# Install Dependicies
 
 ```
 npm install
 ```
 
+# Change env variables
+
 Make .env file from dist.env
+
+# Run
 
 For run script use command
 
