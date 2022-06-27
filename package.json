@@ -1,0 +1,22 @@
+{
+  "name": "bitbucket-package-update",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "node ./bin/index.js"
+  },
+  "keywords": [],
+  "author": "Ivan Osypov <ozzysk8cv@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bitbucket": "^2.7.0",
+    "dotenv": "^16.0.1",
+    "node-fetch": "^3.2.6",
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}
